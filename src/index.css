@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "PexelGrotesk";
+    src: url("./assets/fonts/PexelGrotesk-Regular.ttf") format("truetype");
+    font-style: normal;
+}
+
+@theme {
+    --font-pexel: "PexelGrotesk", sans-serif;
+}
+
+@font-face {
+    font-family: "Keleti";
+    src: url("./assets/fonts/Keleti-Regular.ttf") format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "EpilNormal";
+    src: url("./assets/fonts/EpilepsySans.ttf") format("truetype");
+    font-style: normal;
+}
+
+@layer components {
+    .animation-limit {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+}
+
+@theme {
+    --font-pexel: "PexelGrotesk", sans-serif;
+    --font-keleti: "Keleti", sans-serif;
+    --font-epil-normal: "EpilNormal", sans-serif;
+}
+
+html {
+    font-size: calc(0.90vw);
+}

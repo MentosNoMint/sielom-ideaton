@@ -32,11 +32,11 @@ export const TextRing: React.FC<TextRingProps> = ({
     }, { scope: ringRef });
 
     return (
-        <div className={`absolute flex items-center justify-center overflow-hidden h-[12rem] w-full text-white ${className}`}>
+        <div className={`absolute flex items-center justify-center md:overflow-hidden h-48 w-full text-white ${className}`}>
             <div className="perspective-[100rem] relative flex items-center justify-center">
 
                 <div
-                    className="transform-style-3d rotate-x-[5deg] -rotate-z-[15deg]"
+                    className="transform-style-3d rotate-x-[5deg] -rotate-z-15"
                     style={{ transformStyle: "preserve-3d" }}
                 >
                     <div
@@ -57,7 +57,7 @@ export const TextRing: React.FC<TextRingProps> = ({
                                     fontSize: "2.25rem",
                                 }}
                             >
-                                <span className="text-[#93ABD9] font-epil-normal flex items-center gap-[1rem]">
+                                <span className="text-[#93ABD9] font-epil-normal flex items-center gap-4">
                                     {text}
                                     <span>•</span>
                                 </span>

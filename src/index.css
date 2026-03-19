@@ -6,10 +6,6 @@
     font-style: normal;
 }
 
-@theme {
-    --font-pexel: "PexelGrotesk", sans-serif;
-}
-
 @font-face {
     font-family: "Keleti";
     src: url("./assets/fonts/Keleti-Regular.ttf") format("truetype");
@@ -22,6 +18,12 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: "cursive";
+    src: url("./assets/fonts/Carolina.ttf") format("truetype");
+    font-style: normal;
+}
+
 @layer components {
     .animation-limit {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -29,11 +31,15 @@
 }
 
 @theme {
+    --font-cursive: "cursive", sans-serif;
     --font-pexel: "PexelGrotesk", sans-serif;
     --font-keleti: "Keleti", sans-serif;
     --font-epil-normal: "EpilNormal", sans-serif;
 }
 
-html {
-    font-size: calc(0.90vw);
+
+@media (min-width: 48rem) {
+    html {
+        font-size: calc(0.90vw);
+    }
 }

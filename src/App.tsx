@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="bg-black w-full min-h-[100dvh] overflow-x-hidden flex justify-center md:items-center relative">
-      <div className="fixed w-full h-full bg-[url('/src/assets/images/grid.svg')] bg-cover"></div>
+      <div className="fixed top-0 left-0 w-full h-screen bg-[url('/src/assets/images/grid.svg')] bg-cover bg-center bg-no-repeat"></div>
       <div className={cn("w-full h-fit flex justify-center", fullScreenStyle)}>
         <TextRing
           className="w-full scale-50 max-md:scale-30 -mt-8 max-md:mt-0"

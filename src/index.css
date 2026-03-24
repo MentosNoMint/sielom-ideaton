@@ -40,6 +40,6 @@
 
 @media (min-width: 48rem) {
     html {
-        font-size: calc(0.90vw);
+        font-size: calc(0.80vw);
     }
 }

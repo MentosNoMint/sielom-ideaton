@@ -10,7 +10,7 @@ interface TeamData {
     id: string;
     title: string;
     description: string;
-  };
+  } | null;
 }
 
 interface ApiResponse {
@@ -30,7 +30,7 @@ function ViewPage() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("https://events.sielom.ru/api/public/events/51e5cbe8-f0ff-4060-86a3-cdb376c10f04/current-state");
+      const response = await fetch("/api/public/events/51e5cbe8-f0ff-4060-86a3-cdb376c10f04/current-state");
       const result: ApiResponse = await response.json();
       if (result.success) {
         setData(result.data);
@@ -62,32 +62,32 @@ function ViewPage() {
       <AlienModelRender />
       <Scene />
 
-      {/* Current Team - Bottom Left */}
-      {data?.currentTeam && (
+      {/* Next Team - Bottom Left (Preparing) */}
+      {data?.nextTeam && (
         <div className="fixed bottom-10 left-10 z-50 max-md:bottom-5 max-md:left-5">
           <p className="text-[#93ABD9] font-epil-normal text-2xl max-md:text-sm uppercase tracking-wide">
             Готовится команда
           </p>
           <p className="text-[#F9F4CC] font-epil-normal text-6xl max-md:text-2xl mt-1">
-            {data.currentTeam.name}
+            {data.nextTeam.name}
           </p>
           <p className="text-[#F9F4CC] font-epil-normal text-3xl max-md:text-lg opacity-80 mt-2">
-            проект «{data.currentTeam.topic.title}»
+            {data.nextTeam.topic ? `проект «${data.nextTeam.topic.title}»` : "Тема не назначена"}
           </p>
         </div>
       )}
 
-      {/* Next Team - Bottom Right */}
-      {data?.nextTeam && (
+      {/* Current Team - Bottom Right (Performing) */}
+      {data?.currentTeam && (
         <div className="fixed bottom-10 right-10 z-50 text-end max-md:bottom-5 max-md:right-5">
           <p className="text-[#93ABD9] font-epil-normal text-2xl max-md:text-sm uppercase tracking-wide">
             Выступает команда
           </p>
           <p className="text-[#F9F4CC] font-epil-normal text-6xl max-md:text-2xl mt-1">
-            {data.nextTeam.name}
+            {data.currentTeam.name}
           </p>
           <p className="text-[#F9F4CC] font-epil-normal text-3xl max-md:text-lg opacity-80 mt-2">
-            проект «{data.nextTeam.topic.title}»
+            {data.currentTeam.topic ? `проект «${data.currentTeam.topic.title}»` : "Тема не назначена"}
           </p>
         </div>
       )}

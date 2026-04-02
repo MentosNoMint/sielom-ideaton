@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Scene } from "@/components/canvas/Scene.tsx";
 import { AlienModelRender } from "@/components/canvas/alien/AlienModelRender.tsx";
 import AnimationImage from "@/components/AnimationImage";
+import Logo from "@/assets/images/logo.svg";
 
 interface TeamData {
   id: string;
@@ -30,7 +31,9 @@ function ViewPage() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("/api/public/events/51e5cbe8-f0ff-4060-86a3-cdb376c10f04/current-state");
+      const response = await fetch(
+        "/api/public/events/51e5cbe8-f0ff-4060-86a3-cdb376c10f04/current-state",
+      );
       const result: ApiResponse = await response.json();
       if (result.success) {
         setData(result.data);
@@ -48,7 +51,7 @@ function ViewPage() {
 
   return (
     <div className="bg-black w-full min-h-[100dvh] flex items-center justify-center flex-col relative overflow-hidden">
-      <AnimationImage 
+      <AnimationImage
         leftClassName="absolute top-120 max-md:top-16 left-40 max-md:left-9 w-full animation-limit overflow-hidden z-60"
         rightClassName="absolute top-150 max-md:top-0 right-40 max-md:right-10 animation-limit w-full overflow-hidden z-60"
       />
@@ -56,9 +59,18 @@ function ViewPage() {
       <h1 className="text-[24rem] max-md:text-[5rem] max-md:text-center text-[#F9F4CC] font-pexel z-10">
         ideaton
       </h1>
-      <p className="text-[4rem] max-md:text-[1.5rem] text-[#F9F4CC] bg-[#93ABD9] px-10 py-2 font-epil-normal z-10 text-end -mt-25 max-md:-mt-5 max-md:mr-10">
-        Лабаратория цифровых идей
-      </p>  
+      <div className="flex gap-4 items-stretch z-10 -mt-25 max-md:-mt-5 h-28 max-md:h-14">
+        <p className="text-[4rem] max-md:text-[2rem] text-[#F9F4CC] bg-[#93ABD9] px-10 flex items-center justify-end font-epil-normal whitespace-nowrap">
+          Лабаратория цифровых идей
+        </p>
+        <div className="bg-[#93ABD9] px-10 flex items-center justify-center overflow-hidden">
+          <img
+            src={Logo}
+            alt="Logo"
+            className="h-20 max-md:h-8 brightness-0 invert object-contain"
+          />
+        </div>
+      </div>
       <AlienModelRender />
       <Scene />
 
@@ -72,7 +84,9 @@ function ViewPage() {
             {data.nextTeam.name}
           </p>
           <p className="text-[#F9F4CC] font-epil-normal text-3xl max-md:text-lg opacity-80 mt-2">
-            {data.nextTeam.topic ? `проект «${data.nextTeam.topic.title}»` : "Тема не назначена"}
+            {data.nextTeam.topic
+              ? `проект «${data.nextTeam.topic.title}»`
+              : "Тема не назначена"}
           </p>
         </div>
       )}
@@ -87,7 +101,9 @@ function ViewPage() {
             {data.currentTeam.name}
           </p>
           <p className="text-[#F9F4CC] font-epil-normal text-3xl max-md:text-lg opacity-80 mt-2">
-            {data.currentTeam.topic ? `проект «${data.currentTeam.topic.title}»` : "Тема не назначена"}
+            {data.currentTeam.topic
+              ? `проект «${data.currentTeam.topic.title}»`
+              : "Тема не назначена"}
           </p>
         </div>
       )}

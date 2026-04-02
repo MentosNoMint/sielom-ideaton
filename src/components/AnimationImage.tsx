@@ -4,7 +4,15 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-const AnimationImage = () => {
+export interface AnimationImageProps {
+  leftClassName?: string;
+  rightClassName?: string;
+}
+
+const AnimationImage = ({
+  leftClassName = "absolute top-80 max-md:top-16 -left-20 max-md:left-9",
+  rightClassName = "absolute top-23 max-md:top-0 right-0 max-md:right-10"
+}: AnimationImageProps = {}) => {
   const getImageUrl = (name: string) => {
     return new URL(`../assets/images/${name}.png`, import.meta.url).href;
   };
@@ -117,7 +125,7 @@ const AnimationImage = () => {
   return (
     <div className="w-full h-full z-60">
       <div
-        className="absolute top-80 max-md:top-16 -left-20 max-md:left-9 w-full animation-limit overflow-hidden z-60"
+        className={`${leftClassName} w-full animation-limit overflow-hidden z-60`}
         style={{ height: `${imageSize + 2.5}rem` }}
       >
         <div
@@ -158,7 +166,7 @@ const AnimationImage = () => {
       </div>
 
       <div
-        className="absolute top-23 max-md:top-0 right-0 max-md:right-10 animation-limit w-full overflow-hidden z-60"
+        className={`${rightClassName} animation-limit w-full overflow-hidden z-60`}
         style={{ height: `${imageSize + 8}rem` }}
       >
         <div

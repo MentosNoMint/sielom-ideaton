@@ -61,7 +61,7 @@ function ViewPage() {
       </h1>
       <div className="flex gap-4 items-stretch z-10 -mt-25 max-md:-mt-5 h-28 max-md:h-14">
         <p className="text-[4rem] max-md:text-[2rem] text-[#F9F4CC] bg-[#93ABD9] px-10 flex items-center justify-end font-epil-normal whitespace-nowrap">
-          Лабаратория цифровых идей
+          Лаборатория цифровых идей
         </p>
         <div className="bg-[#93ABD9] px-10 flex items-center justify-center overflow-hidden">
           <img

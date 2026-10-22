@@ -19,6 +19,12 @@
 }
 
 @font-face {
+    font-family: "EpilBold";
+    src: url("./assets/fonts/EpilepsySansBold.ttf") format("truetype");
+    font-style: normal;
+}
+
+@font-face {
     font-family: "cursive";
     src: url("./assets/fonts/Carolina.ttf") format("truetype");
     font-style: normal;
@@ -35,6 +41,23 @@
     --font-pexel: "PexelGrotesk", sans-serif;
     --font-keleti: "Keleti", sans-serif;
     --font-epil-normal: "EpilNormal", sans-serif;
+    --font-epil-bold: "EpilBold", sans-serif;
+    --font-wix: "Wix Madefor Display", sans-serif;
+    --font-vibe: "EpilNormal", sans-serif;
+    --color-paper: #fbfbf8;
+    --color-ink: #0a0a0a;
+    --color-grid: #e7e7e2;
+    --color-sky: #93ABD9;
+    --color-sky-soft: #d6e4f7;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee { animation: none !important; }
 }
 
 

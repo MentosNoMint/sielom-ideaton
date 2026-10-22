@@ -28,7 +28,7 @@ function Vibe() {
           <div className="col-span-7 max-md:col-span-12">
             <h1 className="relative w-fit ml-[8rem] max-md:ml-[3rem] mt-[7rem] max-md:mt-[3rem] leading-[0.85] text-[17rem] max-md:text-[5.2rem] tracking-tight">
               <Stickers size="9rem" />
-              <GlitchWord text="Вайба" />
+              <GlitchWord text="Вайбо" />
               <br />
               <GlitchWord text="тон" interval={600} />
               {/* год рядом с последней строкой, как подпись на референсе */}

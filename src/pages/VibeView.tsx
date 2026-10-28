@@ -19,7 +19,7 @@ function VibeView() {
         </p>
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center gap-20 max-md:flex-col max-md:gap-4 z-10 -mt-16">
+      <div className="absolute inset-0 flex items-center justify-center gap-20 max-md:flex-col max-md:gap-4 z-10 mt-16">
         <h1 className="relative text-[19rem] max-md:text-[5rem] leading-[0.85] tracking-tight">
           <Stickers size="10rem" />
           <GlitchWord text="Вайбо" interval={350} />

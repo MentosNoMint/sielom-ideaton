@@ -4,59 +4,8 @@ import Rabbit from "@/components/vibe/Rabbit.tsx";
 import Stickers from "@/components/vibe/Stickers.tsx";
 import GridBg from "@/components/vibe/GridBg.tsx";
 import Logo from "@/assets/images/logo.svg";
-import { VIBE } from "@/config/vibe.ts";
-import { useEventState, type TeamData } from "@/lib/useEventState.ts";
-import { cn } from "@/lib/cn.ts";
-
-interface TeamCornerProps {
-  label: string;
-  team: TeamData;
-  align: "left" | "right";
-  live?: boolean;
-}
-
-const TeamCorner = ({ label, team, align, live }: TeamCornerProps) => (
-  <div
-    className={cn(
-      "fixed bottom-10 z-20 max-w-[40%] max-md:bottom-5 max-md:max-w-[45%]",
-      align === "left" ? "left-10 max-md:left-4" : "right-10 max-md:right-4 text-end",
-    )}
-  >
-    <p
-      className={cn(
-        "inline-flex items-center gap-3 px-2 py-1 uppercase tracking-wider text-2xl max-md:text-xs",
-        live ? "bg-ink text-paper" : "bg-sky-soft",
-      )}
-    >
-      {live && <span className="size-3 max-md:size-2 bg-sky animate-pulse" />}
-      {label}
-    </p>
-    <p className="text-6xl max-md:text-2xl mt-3 leading-none">{team.name}</p>
-    <p className="text-3xl max-md:text-base mt-3 opacity-70">
-      {team.topic ? `проект «${team.topic.title}»` : "Тема не назначена"}
-    </p>
-  </div>
-);
-
-// /view?demo — показать углы с тестовыми командами
-const DEMO_TEAMS = {
-  nextTeam: {
-    id: "demo-next",
-    name: "Промпт-инженеры",
-    topic: { id: "t1", title: "ИИ-расписание", description: "" },
-  },
-  currentTeam: {
-    id: "demo-current",
-    name: "Vibe Coders",
-    topic: { id: "t2", title: "Бот для абитуриентов", description: "" },
-  },
-};
 
 function VibeView() {
-  const live = useEventState(VIBE.eventId);
-  const isDemo = new URLSearchParams(window.location.search).has("demo");
-  const data = isDemo ? DEMO_TEAMS : live;
-
   return (
     <div className="bg-paper text-ink font-epil-normal w-full h-[100dvh] overflow-hidden relative">
       <GridBg />
@@ -90,18 +39,6 @@ function VibeView() {
           </p>
         </div>
       </div>
-
-      {data?.nextTeam && (
-        <TeamCorner label="Готовится команда" team={data.nextTeam} align="left" />
-      )}
-      {data?.currentTeam && (
-        <TeamCorner
-          label="Выступает команда"
-          team={data.currentTeam}
-          align="right"
-          live
-        />
-      )}
     </div>
   );
 }
